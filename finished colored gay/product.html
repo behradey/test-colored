@@ -1,0 +1,386 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <link rel="stylesheet" href="css.css">
+</head>
+<body>
+  
+
+
+  <body dir="rtl">
+
+    <div class="login-modal" id="loginModal">
+      <div class="login-box">
+          <h2>ورود</h2>
+  
+          <input type="text" id="username" placeholder="نام کاربری">
+  
+          <input type="password" id="password" placeholder="رمز عبور">
+  
+          <button id="loginBtn">ورود</button>
+      </div>
+  </div>
+      
+  
+  
+  <div class="user-profile" id="userProfile">
+      <div class="user-avatar">
+          <svg viewBox="0 0 24 24" width="20" height="20">
+              <path fill="white"
+                  d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z"/>
+          </svg>
+      </div>
+  
+      
+  </div>
+  
+  <div class="theme-switcher" id="themeSwitcher">
+    <button class="theme-toggle-btn" id="themeToggleBtn" title="تغییر تم">
+        <svg viewBox="0 0 24 24" width="20" height="20" fill="white">
+            <path d="M12 3c-4.97 0-9 4.03-9 9s4.03 9 9 9 9-4.03 9-9c0-.46-.04-.92-.1-1.36-.98 1.37-2.58 2.26-4.4 2.26-2.98 0-5.4-2.42-5.4-5.4 0-1.81.89-3.42 2.26-4.4-.44-.06-.9-.1-1.36-.1z"/>
+        </svg>
+    </button>
+    <div class="theme-panel" id="themePanel">
+        <div class="theme-option active" data-theme="galaxy" style="background: linear-gradient(135deg, #6c47ff, #a855f7)" title="بنفش کهکشانی"></div>
+        <div class="theme-option" data-theme="ocean" style="background: linear-gradient(135deg, #0077ff, #00c6ff)" title="آبی اقیانوسی"></div>
+        <div class="theme-option" data-theme="matrix" style="background: linear-gradient(135deg, #00c853, #00e676)" title="سبز ماتریکسی"></div>
+        <div class="theme-option" data-theme="fire" style="background: linear-gradient(135deg, #ff1744, #ff6d00)" title="قرمز آتشین"></div>
+        <div class="theme-option" data-theme="gold" style="background: linear-gradient(135deg, #f5a623, #f7c948)" title="طلایی لاکچری"></div>
+        <div class="theme-option" data-theme="cyber" style="background: linear-gradient(135deg, #ff0080, #ff6ec7)" title="صورتی سایبرپانک"></div>
+        <div class="theme-option" data-theme="ice" style="background: linear-gradient(135deg, #00bcd4, #00e5ff)" title="فیروزه‌ای یخی"></div>
+    </div>
+  </div>
+    <canvas id="bg"></canvas>
+  
+    <div class="profile-card" id="profileCard">
+  
+      <div class="profile-top">
+          <div class="profile-avatar" id="avatarLetter">؟</div>
+  
+          <div>
+              <h3 id="cardName">وارد شوید</h3>
+              <span>کاربر ویژه</span>
+          </div>
+      </div>
+  
+      <div class="profile-info">
+          <div>
+              <strong>0</strong>
+              <span>علاقه‌مندی</span>
+          </div>
+  
+          <div>
+              <strong>0</strong>
+              <span>سفارش</span>
+          </div>
+  
+          <div>
+              <strong>VIP</strong>
+              <span>سطح</span>
+          </div>
+      </div>
+  
+      <div class="profile-actions">
+          <button class="profile-btn">
+              مشاهده پروفایل
+          </button>
+  
+          <button class="logout-btn" id="logoutBtn">
+              خروج از حساب
+          </button>
+      </div>
+  
+  </div>
+  
+      <div class="container">
+  
+  
+          <div class="sidebar">
+              <div class="user-btn" title="حساب کاربری">
+                  <!-- آیکون SVG آدمک -->
+                  <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" width="36" height="36">
+                      <path fill="white" d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z"/>
+                    </svg>
+                </div>
+                <span id="profileName"></span>
+  
+                <nav class="sidebar-nav">
+                  <a href="#" onclick="goBack1()" class="nav-item" data-box="0" title="لیست محصولات">
+                      <svg viewBox="0 0 24 24" width="22" height="22">
+                        <circle cx="4" cy="6" r="1.5" fill="black"/>
+                        <line x1="8" y1="6" x2="21" y2="6" stroke="black" stroke-width="2" stroke-linecap="round"/>
+                        <circle cx="4" cy="12" r="1.5" fill="black"/>
+                        <line x1="8" y1="12" x2="21" y2="12" stroke="black" stroke-width="2" stroke-linecap="round"/>
+                        <circle cx="4" cy="18" r="1.5" fill="black"/>
+                        <line x1="8" y1="18" x2="21" y2="18" stroke="black" stroke-width="2" stroke-linecap="round"/>
+                      </svg>
+                    </a>
+                    <a href="#" onclick="goBack2()" class="nav-item" data-box="1">
+                    <svg viewBox="0 0 24 24" width="22" height="22" fill="white"><path d="M10 20v-6h4v6h5v-8h3L12 3 2 12h3v8z"/></svg>
+                    <span>خانه</span>
+                  </a>
+                  <a href="#" onclick="goBack()" class="nav-item" data-box="2" title="آفر ویژه">
+                      <svg viewBox="0 0 24 24" width="22" height="22">
+                        <text x="12" y="17" font-size="13" font-family="Tahoma" font-weight="bold" fill="black" text-anchor="middle">OFF</text>
+                        <line x1="2" y1="2" x2="22" y2="22" stroke="black" stroke-width="2" stroke-linecap="round"/>
+                      </svg>
+                    </a>
+                    <a href="#" onclick="goBack3()" class="nav-item" data-box="3">
+                      <svg viewBox="0 0 24 24" width="22" height="22" fill="black"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>                  <span>علاقه‌مندی‌ها</span>
+                  </a>
+                </nav>
+  
+  
+                <div class="nav-item-end-wrapper">
+                  <div class="social-tray" id="socialTray">
+                
+                      <a href="https://instagram.com" target="_blank" class="social-tray-btn">
+                          <svg viewBox="0 0 24 24" width="22" height="22">
+                            <rect x="2" y="2" width="20" height="20" rx="5" fill="none" stroke-width="2" class="ig-stroke"/>
+                            <circle cx="12" cy="12" r="5" fill="none" stroke-width="2" class="ig-stroke"/>
+                            <circle cx="17.5" cy="6.5" r="1.2" class="ig-fill"/>
+                          </svg>
+                        </a>
+                
+                    <a href="https://t.me/YOUR_USERNAME" target="_blank" class="social-tray-btn">
+                      <svg viewBox="0 0 24 24" width="20" height="20">
+                        <path class="tg-fill" d="M11.944 0A12 12 0 0 0 0 12a12 12 0 0 0 12 12 12 12 0 0 0 12-12A12 12 0 0 0 12 0a12 12 0 0 0-.056 0zm4.962 7.224c.1-.002.321.023.465.14a.506.506 0 0 1 .171.325c.016.093.036.306.02.472-.18 1.898-.962 6.502-1.36 8.627-.168.9-.499 1.201-.82 1.23-.696.065-1.225-.46-1.9-.902-1.056-.693-1.653-1.124-2.678-1.8-1.185-.78-.417-1.21.258-1.91.177-.184 3.247-2.977 3.307-3.23.007-.032.014-.15-.056-.212s-.174-.041-.249-.024c-.106.024-1.793 1.14-5.061 3.345-.48.33-.913.49-1.302.48-.428-.008-1.252-.241-1.865-.44-.752-.245-1.349-.374-1.297-.789.027-.216.325-.437.893-.663 3.498-1.524 5.83-2.529 6.998-3.014 3.332-1.386 4.025-1.627 4.476-1.635z"/>
+                      </svg>
+                    </a>
+                
+                    <a href="https://wa.me/YOUR_NUMBER" target="_blank" class="social-tray-btn">
+                      <svg viewBox="0 0 24 24" width="22" height="22">
+                        <path class="wa-fill" d="M12 2C6.48 2 2 6.48 2 12c0 1.85.5 3.58 1.37 5.07L2 22l5.08-1.35A9.93 9.93 0 0012 22c5.52 0 10-4.48 10-10S17.52 2 12 2zm4.93 13.67c-.21.6-1.24 1.14-1.7 1.21-.44.07-.99.1-1.6-.1-.37-.12-.84-.28-1.44-.55-2.53-1.09-4.18-3.63-4.31-3.8-.13-.17-1.04-1.38-1.04-2.63 0-1.25.66-1.87.89-2.12.23-.25.5-.31.67-.31.17 0 .33 0 .48.01.15.01.36-.06.56.43.21.5.71 1.73.77 1.86.06.13.1.28.02.45-.08.17-.12.28-.24.43-.12.15-.25.33-.36.44-.12.12-.24.25-.1.49.14.24.62.99 1.33 1.6.91.8 1.68 1.05 1.92 1.17.24.12.38.1.52-.06.14-.16.6-.7.76-.94.16-.24.32-.2.54-.12.22.08 1.4.66 1.64.78.24.12.4.18.46.28.06.1.06.58-.15 1.18z"/>
+                      </svg>
+                    </a>
+                
+                  </div>
+                
+                  <a href="#" class="nav-item-end" id="socialToggle" title="شبکه‌های اجتماعی">
+                    <svg viewBox="0 0 24 24" width="22" height="22" fill="black">
+                      <path d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z"/>
+                    </svg>
+                  </a>
+                </div>
+  
+          </div>
+  
+  
+          <div class="items-container">
+              <div class="search-container">
+                  <input type="text" class="search-input" placeholder="جستجو...">
+                  <button class="search-button">
+                      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-search">
+                          <circle cx="11" cy="11" r="8"></circle>
+                          <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+                      </svg>
+                  </button>
+              </div>
+  
+              <div class="login-div">  
+                  <button class="login-icon">ورود</button>  
+              </div>
+  
+              <div class="item-buy">
+                <div class="product-page">
+
+                  <button class="back-btn" onclick="goBack()">⬅ برگشت</button>
+                
+                  <div class="product-card" id="productBox"></div>
+
+                
+                  
+                
+                </div>
+  
+                <div class="slider-wrapper">
+
+                  <button class="arrow" id="left">❮</button>
+              
+                  <div class="slider" id="slider">
+              
+                      <div class="item">
+                        <button class="item-star">
+                          <svg viewBox="0 0 24 24"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
+                        </button>
+                        <span class="item-badge">20% OFF</span>
+                        <div class="info">
+
+                          <div class="price-box">
+                            <div>
+                              <div class="title">iphone 17 pro</div>
+                              <span class="title-detail">ZAA 256GB 12GB</span>
+                            </div>
+                            <div>
+                              <div class="new-price">1299$</div>
+                            <span class="old-price">1399$</span>
+                          </div>
+                        </div>
+                      </div>
+                          <img src="photos/ChatGPT Image May 30, 2026, 11_18_36 PM.png">
+                      </div>
+              
+                      <div class="item">
+                        <button class="item-star">
+                          <svg viewBox="0 0 24 24"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
+                        </button>
+                        <span class="item-badge">20% OFF</span>
+                        <div class="info">
+
+                          <div class="price-box">
+                            <div>
+                              <div class="title">iphone 17 pro</div>
+                              <span class="title-detail">ZAA 256GB 12GB</span>
+                            </div>
+                            <div>
+                              <div class="new-price">1299$</div>
+                            <span class="old-price">1399$</span>
+                          </div>
+                        </div>
+                      </div>
+                          <img src="photos/ChatGPT Image May 30, 2026, 11_18_58 PM.png">
+                      </div>
+              
+                      <div class="item">
+                        <button class="item-star">
+                          <svg viewBox="0 0 24 24"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
+                        </button>
+                        <span class="item-badge">20% OFF</span>
+                        <div class="info">
+
+                          <div class="price-box">
+                            <div>
+                              <div class="title">iphone 17 pro</div>
+                              <span class="title-detail">ZAA 256GB 12GB</span>
+                            </div>
+                            <div>
+                              <div class="new-price">1299$</div>
+                            <span class="old-price">1399$</span>
+                          </div>
+                        </div>
+                      </div>
+                          <img src="photos/ChatGPT Image May 30, 2026, 11_19_07 PM.png">
+                      </div>
+              
+                      <div class="item">
+                        <button class="item-star">
+                          <svg viewBox="0 0 24 24"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
+                        </button>
+                        <span class="item-badge">20% OFF</span>
+                        <div class="info">
+
+                          <div class="price-box">
+                            <div>
+                              <div class="title">iphone 17 pro</div>
+                              <span class="title-detail">ZAA 256GB 12GB</span>
+                            </div>
+                            <div>
+                              <div class="new-price">1299$</div>
+                            <span class="old-price">1399$</span>
+                          </div>
+                        </div>
+                      </div>
+                          <img src="photos/ChatGPT Image May 30, 2026, 11_19_29 PM.png">
+                      </div>
+              
+                      <div class="item">
+                        <button class="item-star">
+                          <svg viewBox="0 0 24 24"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
+                        </button>
+                        <span class="item-badge">20% OFF</span>
+                        <div class="info">
+
+                          <div class="price-box">
+                            <div>
+                              <div class="title">iphone 17 pro</div>
+                              <span class="title-detail">ZAA 256GB 12GB</span>
+                            </div>
+                            <div>
+                              <div class="new-price">1299$</div>
+                            <span class="old-price">1399$</span>
+                          </div>
+                        </div>
+                      </div>
+                          <img src="photos/ChatGPT Image May 30, 2026, 11_19_42 PM.png">
+                      </div>
+              
+                  </div>
+              
+                  <button class="arrow" id="right">❯</button>
+              
+              </div>
+                </div>
+              </div>
+  
+  
+                
+
+<script>
+const product = JSON.parse(localStorage.getItem("currentProduct"));
+
+const box = document.getElementById("productBox");
+
+box.innerHTML = `
+<div class="item-4">
+  <img src="${product.img}">
+</div>
+<div class="detailbox">
+  <h2>${product.title}</h2>
+  <h1 class="title-detail4">گوشی موبایل اپل مدل iPhone 17 Pro Max ZAA تک سیم کارت + eSim ظرفیت 512 گیگابایت و رم 12 گیگابایت - نات اکتیو</h1>
+  <h1 class="title-detail5">امکان برگشت کالا در گروه موبایل با دلیل "انصراف از خرید" تنها در صورتی مورد قبول است که پلمب کالا باز نشده باشد. تمام گوشی‌های دیجی‌کالا ضمانت رجیستری دارند. در صورت وجود مشکل رجیستری، می‌توانید بعد از مهلت قانونی ۳۰ روزه، گوشی خریداری‌شده را مرجوع کنید.</h1>
+  
+</div>
+<div class="x7p9k">
+
+<div class="m4q1z" id="oldPrice">1,500,000 تومان</div>
+
+<div class="n8v3b" id="newPrice">${product.price}</div>
+
+<div class="q2w8r">
+
+  <button class="t6y1u" onclick="qtyDown()">-</button>
+
+  <span class="h9k3p" id="qty">1</span>
+
+  <button class="z5x7c" onclick="qtyUp()">+</button>
+
+</div>
+
+<button class="b1n4m" onclick="addToCart()">🛒 افزودن به سبد خرید</button>
+
+</div>
+`;
+
+
+function goBack1() {
+  sessionStorage.setItem("openBox", "0");
+  window.location.href = "html.html";
+}
+function goBack2() {
+  sessionStorage.setItem("openBox", "1");
+  window.location.href = "html.html";
+}
+function goBack() {
+  sessionStorage.setItem("openBox", "2");
+  window.location.href = "html.html";
+}
+function goBack3() {
+  sessionStorage.setItem("openBox", "3");
+  window.location.href = "html.html";
+}
+
+function addToCart() {
+  let cart = JSON.parse(localStorage.getItem("cart")) || [];
+  cart.push(product);
+  localStorage.setItem("cart", JSON.stringify(cart));
+  alert("اضافه شد به سبد خرید!");
+}
+</script>
+
+<script src="js2.js"></script>
+
+</body>
+</html>
